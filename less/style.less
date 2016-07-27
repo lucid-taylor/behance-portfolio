@@ -1,0 +1,30 @@
+@import "reset.less";
+
+@font-stack: 'Libre Franklin', Franklin Gothic, Helvetica, sans-serif;
+
+@gray: #f0f0f0;
+@red: #FF5252;
+
+body {
+	background: @gray;
+	font-family: @font-stack;
+}
+
+h1 {
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	> div {
+		margin-top: 24px;
+		background: @gray;
+	}
+}
+
+a {
+	color: inherit;
+}
+
+.red {
+	color: @red;
+	fill: @red;
+}
