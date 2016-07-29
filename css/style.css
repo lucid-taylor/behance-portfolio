@@ -139,15 +139,19 @@ table {
 body {
   background: #f0f0f0;
   font-family: 'Libre Franklin', Franklin Gothic, Helvetica, sans-serif;
+  color: #212121;
+  line-height: 1.5;
 }
 h1 {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
+  padding: 24px 32px;
 }
 h1 > div {
-  margin-top: 24px;
+  margin-top: 12px;
   background: #f0f0f0;
+  padding-top: 8px;
 }
 a {
   color: inherit;
@@ -155,4 +159,65 @@ a {
 .red {
   color: #FF5252;
   fill: #FF5252;
+}
+.wrapper {
+  max-width: 1008px;
+  padding: 0 24px;
+  margin: auto;
+}
+header#main-header {
+  margin-top: 72px;
+  position: relative;
+}
+header#main-header .box {
+  border: 2px solid #FF5252;
+  position: absolute;
+  width: 65%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.row {
+  margin-bottom: 72px;
+}
+.row.half {
+  width: 50%;
+}
+.projects h2 {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 8px;
+}
+.projects header {
+  width: 30%;
+  border-bottom: 2px solid #212121;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+}
+.projects svg {
+  vertical-align: middle;
+}
+.projects ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+.projects li {
+  width: 25%;
+  flex: 0 1 auto;
+  padding: 0 16px;
+}
+.projects li img {
+  max-width: 100%;
+  margin-bottom: 12px;
+  transition: all .2s;
+}
+.projects li img:hover {
+  mix-blend-mode: normal;
+}
+.projects a {
+  text-decoration: none;
 }

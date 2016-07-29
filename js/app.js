@@ -1,59 +1,32 @@
-// var app = angular.module('portfolio', []);
-
-// app.controller('portfolioCtrl', function($scope, behanceFactory) {
-//   $scope.behance = behanceFactory.async();
-  
-// });
-
-// app.factory('behanceFactory', function($http) {  
-//   var behance = {      
-//     async: function(page) {
-//       var user = 'tpalmerixd';
-//       var apiKey = 'mtpmAyXMtH8bQwTRecHniqX3tO90f5UJ';
-//       var url = 'http://behance.net/v2/users/'+ user +'/projects?api_key='+ apiKey +'&callback=JSON_CALLBACK';  
-
-//       var promise = $http.jsonp(url).error(function (response, status) {
-//         console.log(status);
-//       }).success(function (response, status) {
-//         console.log(response.projects);
-//       }).then(function (response, status) {
-//         return response.projects;           
-//       });
-//       return promise;
-
-//     }};
-
-//   return behance;
-//   // return {
-//   //     behance: function() {
-//   //         return behance;
-//   //     }
-//   // };
-  
-// });
+/* global angular : true codekit fix */
+/* global console : true codekit fix */
 
 var app = angular.module('portfolio', []);
 
-app.controller('portfolioCtrl', function($scope, behFactory) {
-  $scope.behance = behFactory.async();
+app.controller('portfolioCtrl', function($scope, portfolioFactory) {
+  // $scope.behance = behFactory.getBehance();
+  // console.log($scope.behance);
   
+  portfolioFactory.getBehance().then(function onFulfilled(data){
+    $scope.behance = data;
+    console.log(data);
+  }).catch(function onRejected() {
+    // This doesn't work
+    console.log('Error in Behance Factory');
+  });
 });
 
-app.factory('behFactory', function($http) {  
-  var factory = {      
-    async: function(page) {
-      var user = 'tpalmerixd';
-      var apiKey = 'mtpmAyXMtH8bQwTRecHniqX3tO90f5UJ';
-      var url = 'http://behance.net/v2/users/'+ user +'/projects?api_key='+ apiKey +'&callback=JSON_CALLBACK';     
-        var promise = $http.jsonp(url).error(function (response, status) {
-          alert(status);
-        }).success(function (response, status) {
-          console.log(response.projects);
-        }).then(function (response, status) {
-          return response.data;           
-      });
-      return promise;
-    }};
-  return factory;
-  
+app.factory('portfolioFactory', function($http) {  
+
+  var getBehance = function() {
+    var user = 'tpalmerixd';
+    var apiKey = 'mtpmAyXMtH8bQwTRecHniqX3tO90f5UJ';
+      return $http({method: 'GET', url: 'http://behance.net/v2/users/'+ user +'/projects?api_key='+ apiKey}).then(function onFulfilled(response) {
+        return response.data.projects;
+    });
+  };
+  return { 
+    getBehance: getBehance 
+  };
+
 });
