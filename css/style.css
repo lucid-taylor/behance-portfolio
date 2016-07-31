@@ -143,15 +143,21 @@ body {
   line-height: 1.5;
 }
 h1 {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 1px;
   padding: 24px 32px;
 }
 h1 > div {
   margin-top: 12px;
   background: #f0f0f0;
   padding-top: 8px;
+}
+h1,
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+h3 {
+  font-size: 18px;
 }
 a {
   color: inherit;
@@ -185,8 +191,6 @@ header#main-header .box {
   width: 50%;
 }
 .projects h2 {
-  font-size: 20px;
-  font-weight: bold;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
@@ -200,24 +204,65 @@ header#main-header .box {
 .projects svg {
   vertical-align: middle;
 }
-.projects ul {
+.projects svg path {
+  fill: #FF5252;
+}
+.projects ul.flex-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   margin: 0 -16px;
 }
-.projects li {
+.projects ul.flex-4 li {
   width: 25%;
-  flex: 0 1 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   padding: 0 16px;
-}
-.projects li img {
-  max-width: 100%;
   margin-bottom: 12px;
-  transition: all .2s;
 }
-.projects li img:hover {
-  mix-blend-mode: normal;
+@media all and (max-width: 799px) {
+  .projects ul.flex-4 li {
+    width: 50%;
+  }
+}
+.projects ul.flex-4 li .image-container {
+  background: #999;
+  margin-bottom: 12px;
+  position: relative;
+  padding-bottom: 78%;
+  overflow: hidden;
+}
+.projects ul.flex-4 li .image-container img {
+  position: absolute;
+  width: 100%;
+}
+.projects ul.flex-4.placeholder .image-container {
+  padding-bottom: 78%;
+}
+.projects ul.flex-4.dribbble .image-container {
+  padding-bottom: 75%;
+}
+.projects ul.flex-4.ng-hide {
+  display: none;
+}
+.projects h3 {
+  height: 54px;
+  overflow: hidden;
 }
 .projects a {
   text-decoration: none;
+}
+.text-block {
+  height: 12px;
+  background: #999;
+  margin: 6px 0 12px;
+}
+.text-block.short {
+  width: 75%;
 }
