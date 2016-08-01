@@ -245,6 +245,11 @@ header#main-header .box {
 .projects ul.flex-4.placeholder .image-container {
   padding-bottom: 78%;
 }
+.projects ul.flex-4.placeholder .image-container,
+.projects ul.flex-4.placeholder .text-block {
+  -webkit-animation: test 2s infinite;
+          animation: test 2s infinite;
+}
 .projects ul.flex-4.dribbble .image-container {
   padding-bottom: 75%;
 }
@@ -265,4 +270,26 @@ header#main-header .box {
 }
 .text-block.short {
   width: 75%;
+}
+@-webkit-keyframes test {
+  0% {
+    background: #bbb;
+  }
+  50% {
+    background: #999;
+  }
+  100% {
+    background: #bbb;
+  }
+}
+@keyframes test {
+  0% {
+    background: #bbb;
+  }
+  50% {
+    background: #999;
+  }
+  100% {
+    background: #bbb;
+  }
 }

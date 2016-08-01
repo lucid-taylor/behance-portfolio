@@ -115,6 +115,9 @@ header#main-header {
 			.image-container {
 				padding-bottom: 78%;
 			}
+			.image-container, .text-block {
+				animation: test 2s infinite;
+			}
 		}
 		&.dribbble {
 			.image-container {
@@ -140,5 +143,17 @@ header#main-header {
 	margin: 6px 0 12px;
 	&.short {
 		width: 75%;
+	}
+}
+
+@keyframes test {
+	0% {
+		background: #bbb;
+	}
+	50% {
+		background: #999;
+	}
+	100% {
+		background: #bbb;
 	}
 }
