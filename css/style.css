@@ -242,19 +242,26 @@ header#main-header .box {
   position: absolute;
   width: 100%;
 }
-.projects ul.flex-4.placeholder .image-container {
+.projects ul.placeholder .image-container {
   padding-bottom: 78%;
 }
-.projects ul.flex-4.placeholder .image-container,
-.projects ul.flex-4.placeholder .text-block {
+.projects ul.placeholder .image-container,
+.projects ul.placeholder .text-block {
   -webkit-animation: test 2s infinite;
           animation: test 2s infinite;
 }
-.projects ul.flex-4.dribbble .image-container {
+.projects ul.dribbble .image-container {
   padding-bottom: 75%;
 }
-.projects ul.flex-4.ng-hide {
+.projects ul.ng-hide {
   display: none;
+}
+.projects ul.medium a:hover {
+  text-decoration: underline;
+}
+.projects ul.medium svg {
+  float: left;
+  margin-right: 10px;
 }
 .projects h3 {
   height: 54px;

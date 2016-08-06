@@ -21,13 +21,14 @@ app.controller('portfolioCtrl', function($scope, portfolioFactory) {
     console.log('Error in Dribbble Factory');
   });
 
-  // portfolioFactory.getMedium().then(function onFulfilled(data){
-  //   $scope.medium = data;
-  //   $scope.mediumLoaded = true;
-  // }).catch(function onRejected() {
-  //   // This doesn't work
-  //   console.log('Error in Medium Factory');
-  // });
+  $scope.medium = portfolioFactory.getMedium().then(function onFulfilled(data){
+    $scope.medium = data;
+    console.log($scope.medium);
+    $scope.mediumLoaded = true;
+  }).catch(function onRejected() {
+    // This doesn't work
+    console.log('Error in Medium Factory');
+  });
 });
 
 app.factory('portfolioFactory', function($http) {  
@@ -48,23 +49,19 @@ app.factory('portfolioFactory', function($http) {
     });
   };
 
-  // var getMedium = function() {
-  //     return $http({method: 'GET', url: 'https://medium.com/feed/@taylorp'}).then(function onFulfilled(response) {
-  //       function transformData(response) {
-  //         // convert the data to JSON and provide
-  //         // it to the success function below
-  //           var x2js = new X2JS();
-  //           var json = x2js.xml_str2json( response );
-  //           console.log(json);
-  //           return json;
-  //       }
-  //   });
-  // };
+  var getMedium = function() {
+    var url = "https://medium.com/feed/@taylorp/";
+    return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url)).then(function onFulfilled(response) {
+      return response.data.responseData.feed.entries;
+    });
+  };
+
+
 
   return { 
     getBehance: getBehance,
     getDribbble: getDribbble,
-    //getMedium: getMedium
+    getMedium: getMedium
   };
 
 });

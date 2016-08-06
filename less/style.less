@@ -87,45 +87,56 @@ header#main-header {
 			fill: @accent;
 		}
 	}
-	ul.flex-4 {
-		display: flex;
-		flex-wrap: wrap;
-		margin: 0 -16px;
-		li {
-			width: 25%;
-			flex: 0 1 auto;
-			padding: 0 16px;
-			margin-bottom: 12px;
-			@media all and (max-width: 799px) {
-				width: 50%;
-			}
-			.image-container {
-				background: #999;
+	ul {
+		&.flex-4 {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 -16px;
+			li {
+				width: 25%;
+				flex: 0 1 auto;
+				padding: 0 16px;
 				margin-bottom: 12px;
-				position: relative;
-				padding-bottom: 78%;
-				overflow: hidden;
-				img {
-					position: absolute;
-					width: 100%;
+				@media all and (max-width: 799px) {
+					width: 50%;
+				}
+				.image-container {
+					background: #999;
+					margin-bottom: 12px;
+					position: relative;
+					padding-bottom: 78%;
+					overflow: hidden;
+					img {
+						position: absolute;
+						width: 100%;
+					}
 				}
 			}
 		}
 		&.placeholder {
 			.image-container {
-				padding-bottom: 78%;
+					padding-bottom: 78%;
+				}
+				.image-container, .text-block {
+					animation: test 2s infinite;
+				}
 			}
-			.image-container, .text-block {
-				animation: test 2s infinite;
+			&.dribbble {
+				.image-container {
+					padding-bottom: 75%;
+				}
 			}
-		}
-		&.dribbble {
-			.image-container {
-				padding-bottom: 75%;
+			&.ng-hide {
+				display: none;
 			}
-		}
-		&.ng-hide {
-			display: none;
+		&.medium {
+			a:hover {
+				text-decoration: underline;
+			}
+			svg {
+				float: left;
+				margin-right: 10px;
+			}
 		}
 	}
 	h3 {
