@@ -1,7 +1,15 @@
 /* global angular : true codekit fix */
 /* global console : true codekit fix */
 
-var app = angular.module('portfolio', []);
+var app = angular.module('portfolio', ['ngTwitter']);
+
+app.config(['$httpProvider', function ($httpProvider) {
+  //Reset headers to avoid OPTIONS request (aka preflight)
+  $httpProvider.defaults.headers.common = {};
+  $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
+}]);
 
 app.controller('portfolioCtrl', function($scope, portfolioFactory) {
   $scope.behanceLoaded = false;
@@ -23,12 +31,12 @@ app.controller('portfolioCtrl', function($scope, portfolioFactory) {
 
   $scope.medium = portfolioFactory.getMedium().then(function onFulfilled(data){
     $scope.medium = data;
-    console.log($scope.medium);
     $scope.mediumLoaded = true;
   }).catch(function onRejected() {
     // This doesn't work
     console.log('Error in Medium Factory');
   });
+
 });
 
 app.factory('portfolioFactory', function($http) {  
@@ -55,7 +63,6 @@ app.factory('portfolioFactory', function($http) {
       return response.data.responseData.feed.entries;
     });
   };
-
 
 
   return { 
