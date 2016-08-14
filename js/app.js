@@ -1,7 +1,7 @@
 /* global angular : true codekit fix */
 /* global console : true codekit fix */
 
-var app = angular.module('portfolio', ['ngTwitter']);
+var app = angular.module('portfolio');
 
 app.config(['$httpProvider', function ($httpProvider) {
   //Reset headers to avoid OPTIONS request (aka preflight)
