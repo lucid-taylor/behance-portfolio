@@ -1,0 +1,282 @@
+@import "reset.less";
+
+@font-stack: 'Libre Franklin', Franklin Gothic, Helvetica, sans-serif;
+
+@gray: #f0f0f0;
+@accent: #FF5252;
+@black: #212121;
+
+@break-point-md: 799px;
+@break-point-sm: 449px;
+
+body {
+	background: @gray;
+	font-family: @font-stack;
+	color: @black;
+	line-height: 1.5;
+}
+
+h1 {
+	padding: 24px 0 24px 32px;
+	@media all and (max-width: @break-point-sm) {
+		padding: 16px 0 16px 20px;
+	}
+	> div {
+		margin-top: 12px;
+		background: @gray;
+		padding-top: 8px;
+	}
+}
+
+h1, h2 {
+	font-weight: 600;
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+	&.underline {
+		text-decoration: underline;
+	}
+}
+
+.red {
+	color: @accent;
+	fill: @accent;
+}
+
+.wrapper {
+	max-width: 1008px; // 960 base
+	padding: 0 24px;
+	margin: auto;
+	@media all and (max-width: @break-point-sm) {
+		padding: 0 16px;
+	}
+}
+
+header#main-header {
+	margin: 72px 0;
+	position: relative;
+	@media all and (max-width: @break-point-sm) {
+		margin-top: 16px;
+	}
+	.box {
+		border: 2px solid @accent;
+		position: absolute;
+		width: 65%;
+		height: 100%;
+		top:0;
+		left:0;
+		z-index: -1;
+		@media all and (max-width: @break-point-sm) {
+			width: 75%;
+		}
+	}
+}
+.social-icons {
+	margin: 0 0 16px 30px;
+	position: absolute;
+	top: 26px;
+	left: 162px;
+	padding-right: 35%;
+	@media all and (max-width: 899px) {
+		position: initial;
+	}
+	@media all and (max-width: @break-point-md) {
+		width: 200px;
+		padding: 0;
+	}
+	@media all and (max-width: @break-point-sm) {
+		margin-left: 20px;
+	}
+	svg {
+		fill: @accent;
+		margin-right: 16px;
+		margin-bottom: 8px;
+	}
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.projects {
+	width: 100%; // for flexbox
+	margin-bottom: 72px;
+	h2 {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 8px;
+
+	}
+	header {
+		width: 30%;
+		border-bottom: 2px solid @black;
+		margin-bottom: 48px;
+		padding-bottom: 24px;
+		display: flex;
+		flex-wrap: nowrap;
+		@media all and (max-width: @break-point-md) {
+			width: 65%;
+		}
+		@media all and (max-width: @break-point-sm) {
+			width: 75%;
+		}
+	}
+	svg {
+		vertical-align: middle;
+		flex: 0 0 auto;
+		path {
+			fill: @accent;
+		}
+	}
+	ul {
+		&.flex-4 {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 -16px;
+			@media all and (max-width: @break-point-sm) {
+				margin: 0 -10px;
+			}
+			li {
+				width: 25%;
+				flex: 0 1 auto;
+				padding: 0 16px;
+				margin-bottom: 12px;
+
+				@media all and (max-width: @break-point-md) {
+					width: 50%;
+				}
+				@media all and (max-width: @break-point-sm) {
+					padding: 0 10px;
+				}
+			}
+			h3 {
+				height: 54px;
+				overflow: hidden;
+			}
+		}
+
+		.image-container {
+			background: #999;
+			margin-bottom: 12px;
+			position: relative;
+			padding-bottom: 78%;
+			overflow: hidden;
+			img {
+				position: absolute;
+				width: 100%;
+				transition: all .2s;
+			}
+		}
+		&.placeholder {
+			li {
+				flex-wrap: wrap;
+			}
+			.image-container {
+					padding-bottom: 78%;
+				}
+				.image-container, .text-block {
+					animation: pulse 1.5s infinite;
+				}
+			}
+			&.dribbble {
+				.image-container {
+					padding-bottom: 75%;
+				}
+			}
+			&.ng-hide {
+				display: none;
+			}
+		
+	}
+	&.dribbble {
+		.image-container {
+			padding-bottom: 75%;
+		}
+	}
+	&.medium, &.accomplishments {
+		li {
+			margin-bottom: 16px;
+			display: flex;
+			svg {
+				margin-right: 10px;
+				min-width: 24px;
+			}
+		}
+	}
+	&.experience {
+		h3 {
+			font-weight: 600;
+		}
+		li {
+			margin-bottom: 16px;
+		}
+	}
+	&.half {
+		width: 50%;
+		flex: 1 0 auto;
+		&:first-of-type {
+			padding-right: 16px;
+		}
+		&:last-of-type {
+			padding-left: 16px;
+		}
+		header {
+			width: 65%;
+			@media all and (max-width: @break-point-sm) {
+				width: 75%;
+			}
+		}
+		@media all and (max-width: 799px) {
+			width: 100%;
+			&:first-of-type, &:last-of-type {
+				padding: 0;
+			}
+		}
+	}
+}
+
+footer {
+	text-align: center;
+	font-size: 14px;
+	color: #999;
+	margin-bottom: 36px;
+}
+
+.text-block {
+	height: 12px;
+	background: #999;
+	margin: 6px 0 12px;
+	width: 100%;
+	&.short {
+		width: 75%;
+	}
+}
+
+.screen-reader{
+	position: absolute;
+	text-indent: -9999px;
+}
+
+@keyframes pulse {
+	0% {
+		background: #ddd;
+	}
+	50% {
+		background: #bbb;
+	}
+	100% {
+		background: #ddd;
+	}
+}
