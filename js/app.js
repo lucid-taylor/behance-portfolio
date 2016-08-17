@@ -3,13 +3,13 @@
 
 var app = angular.module('portfolio', []);
 
-app.config(['$httpProvider', function ($httpProvider) {
-  //Reset headers to avoid OPTIONS request (aka preflight)
-  $httpProvider.defaults.headers.common = {};
-  $httpProvider.defaults.headers.post = {};
-  $httpProvider.defaults.headers.put = {};
-  $httpProvider.defaults.headers.patch = {};
-}]);
+// app.config(['$httpProvider', function ($httpProvider) {
+//   //Reset headers to avoid OPTIONS request (aka preflight)
+//   $httpProvider.defaults.headers.common = {};
+//   $httpProvider.defaults.headers.post = {};
+//   $httpProvider.defaults.headers.put = {};
+//   $httpProvider.defaults.headers.patch = {};
+// }]);
 
 app.controller('portfolioCtrl', function($scope, portfolioFactory) {
   $scope.behanceLoaded = false;
@@ -44,13 +44,7 @@ app.factory('portfolioFactory', function($http) {
   var getBehance = function() {
     var user = 'tpalmerixd';
     var apiKey = 'mtpmAyXMtH8bQwTRecHniqX3tO90f5UJ';
-      return $http({method: 'GET', 
-            headers:{
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
-            }, 
-            url: 'http://behance.net/v2/users/'+ user +'/projects?api_key='+ apiKey}).then(function onFulfilled(response) {
+      return $http({method: 'GET', url: 'https://behance.net/v2/users/'+ user +'/projects?api_key='+ apiKey}).then(function onFulfilled(response) {
         return response.data.projects;
     });
   };
