@@ -182,17 +182,24 @@ html(ng-app="portfolio" ng-cloak)
 				a.underline(target="_blank" href="https://www.twitter.com/@_taylorpalmer") on Twitter.
 	script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
 	script(src="js/app.js")
-	//- script.
-	//- 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	//- 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	//- 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	//- 	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	//- 	ga('create', 'UA-54323774-1', 'auto');
-	//- 	ga('send', 'pageview');
-	//- script(type="text/javascript" id="inspectletjs").
-	//- 	window.__insp = window.__insp || [];
-	//- 	__insp.push(['wid', 2017799488]);
-	//- 	(function() {
-	//- 	function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
-	//- 	setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
-	//- 	})();
+	script(type="text/javascript").
+		(function(e, t) {
+		function r(e, t) {
+		e[t] = function() {
+		e.push([ t ].concat(Array.prototype.slice.call(arguments, 0)));
+		};
+		}
+		var n = "JacoRecorder";
+		(function(e, t, i, s) {
+		if (!i.__VERSION) {
+		e[n] = i;
+		var o = [ "init", "identify", "startRecording", "stopRecording", "removeUserTracking", "setUserInfo" ];
+		for (var u = 0; u < o.length; u++) r(i, o[u]);
+		i.__VERSION = 2, i.__INIT_TIME = 1 * new Date;
+		var a = t.createElement("script");
+		a.async = !0, a.setAttribute("crossorigin", "anonymous"), a.src = s;
+		var f = t.getElementsByTagName("head")[0];
+		f.appendChild(a);
+		}
+		})(e, t, e[n] || [], "//recorder-assets.getjaco.com/recorder_v2.js");
+		}).call(window, window, document), window.JacoRecorder.push([ "init", "2d4fa95b-86cf-4897-94da-b461088777ca", {} ]);
