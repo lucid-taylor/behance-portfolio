@@ -240,13 +240,8 @@ header#main-header .box {
   margin-bottom: 8px;
 }
 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .projects {
   width: 100%;
@@ -262,13 +257,8 @@ header#main-header .box {
   border-bottom: 2px solid #212121;
   margin-bottom: 48px;
   padding-bottom: 24px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 @media all and (max-width: 799px) {
   .projects header {
@@ -280,24 +270,19 @@ header#main-header .box {
     width: 75%;
   }
 }
+.projects header a:hover {
+  text-decoration: none;
+}
 .projects svg {
   vertical-align: middle;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  flex: 0 0 auto;
 }
 .projects svg path {
   fill: #FF5252;
 }
 .projects ul.flex-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 0 -16px;
 }
 @media all and (max-width: 449px) {
@@ -307,10 +292,7 @@ header#main-header .box {
 }
 .projects ul.flex-4 li {
   width: 25%;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
+  flex: 0 1 auto;
   padding: 0 16px;
   margin-bottom: 12px;
 }
@@ -338,21 +320,17 @@ header#main-header .box {
 .projects ul .image-container img {
   position: absolute;
   width: 100%;
-  -webkit-transition: all .2s;
   transition: all .2s;
 }
 .projects ul.placeholder li {
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .projects ul.placeholder .image-container {
   padding-bottom: 78%;
 }
 .projects ul.placeholder .image-container,
 .projects ul.placeholder .text-block {
-  -webkit-animation: pulse 1.5s infinite;
-          animation: pulse 1.5s infinite;
+  animation: pulse 1.5s infinite;
 }
 .projects ul.dribbble .image-container {
   padding-bottom: 75%;
@@ -366,9 +344,6 @@ header#main-header .box {
 .projects.medium li,
 .projects.accomplishments li {
   margin-bottom: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 .projects.medium li svg,
@@ -384,10 +359,7 @@ header#main-header .box {
 }
 .projects.half {
   width: 50%;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 .projects.half:first-of-type {
   padding-right: 16px;
@@ -430,17 +402,6 @@ footer {
 .screen-reader {
   position: absolute;
   text-indent: -9999px;
-}
-@-webkit-keyframes pulse {
-  0% {
-    background: #ddd;
-  }
-  50% {
-    background: #bbb;
-  }
-  100% {
-    background: #ddd;
-  }
 }
 @keyframes pulse {
   0% {
