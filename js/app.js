@@ -3,14 +3,6 @@
 
 var app = angular.module('portfolio', []);
 
-// app.config(['$httpProvider', function ($httpProvider) {
-//   //Reset headers to avoid OPTIONS request (aka preflight)
-//   $httpProvider.defaults.headers.common = {};
-//   $httpProvider.defaults.headers.post = {};
-//   $httpProvider.defaults.headers.put = {};
-//   $httpProvider.defaults.headers.patch = {};
-// }]);
-
 app.controller('portfolioCtrl', function($scope, portfolioFactory) {
   $scope.behanceLoaded = false;
   $scope.dribbbleLoaded = false;
@@ -33,7 +25,6 @@ app.controller('portfolioCtrl', function($scope, portfolioFactory) {
     $scope.medium = data;
     $scope.mediumLoaded = true;
   }).catch(function onRejected() {
-    // This doesn't work
     console.log('Error in Medium Factory');
   });
 
@@ -41,35 +32,13 @@ app.controller('portfolioCtrl', function($scope, portfolioFactory) {
 
 app.factory('portfolioFactory', function($http) {  
 
-  // var getBehance = function() {
-  //   var user = 'tpalmerixd';
-  //   var apiKey = 'mtpmAyXMtH8bQwTRecHniqX3tO90f5UJ';
-  //     return $http({method: 'GET', url: 'https://behance.net/v2/users/'+ user +'/projects?api_key='+ apiKey, 
-  //           headers:{
-  //               'Content-Type': 'text/plain',
-  //               'Access-Control-Allow-Origin': '*'
-  //           }}).then(function onFulfilled(response) {
-  //       return response.data.projects;
-  //   });
-  // };
-
   var getBehance = function() {
     var user = 'tpalmerixd';
     var apiKey = 'mtpmAyXMtH8bQwTRecHniqX3tO90f5UJ';
-      return $http({method: 'JSONP', url: 'https://behance.net/v2/users/'+ user +'/projects?api_key='+ apiKey + '&callback=JSON_CALLBACK'}).then(function onFulfilled(response) {
+      return $http.jsonp('https://behance.net/v2/users/'+ user +'/projects?api_key='+ apiKey + '&callback=JSON_CALLBACK').then(function onFulfilled(response) {
         return response.data.projects;
     });
   };
-
-  // $http({method: 'JSONP', url: $scope.url, cache: $templateCache}).
-  //       then(function(response) {
-  //         $scope.status = response.status;
-  //         $scope.data = response.data;
-  //       }, function(response) {
-  //         $scope.data = response.data || 'Request failed';
-  //         $scope.status = response.status;
-  //     });
-  //   };
 
 
   var getDribbble = function() {
