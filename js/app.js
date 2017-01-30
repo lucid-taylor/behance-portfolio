@@ -22,6 +22,7 @@ app.controller('portfolioCtrl', function($scope, portfolioFactory) {
   });
 
   $scope.medium = portfolioFactory.getMedium().then(function onFulfilled(data){
+    
     $scope.medium = data;
     $scope.mediumLoaded = true;
   }).catch(function onRejected() {
@@ -51,8 +52,9 @@ app.factory('portfolioFactory', function($http) {
 
   var getMedium = function() {
     var url = "https://medium.com/feed/@taylorp/";
-    return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url)).then(function onFulfilled(response) {
-      return response.data.responseData.feed.entries;
+    return $http.jsonp('https://api.rss2json.com/v1/api.json?callback=JSON_CALLBACK&rss_url=' + encodeURIComponent(url)).then(function onFulfilled(response) {
+      console.log(response);
+      return response.data.items;
     });
   };
 
